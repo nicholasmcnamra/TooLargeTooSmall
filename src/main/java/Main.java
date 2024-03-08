@@ -20,20 +20,22 @@ public class Main {
         System.out.println("Take a guess!");
 
         while(userGuess != randInt) {
+            lastGuess = userGuess;
             userGuess = scanner.nextInt();
+            if (userGuess != lastGuess) {
+                numberGuesses++;
+            }
 
             if (userGuess == randInt) {
-                System.out.println("correct guess");
+                System.out.println("correct guess\nYou got it in " + numberGuesses + " of guesses");
+
             }
             else if (userGuess > randInt) {
-                System.out.println("too large");
+                System.out.println("too large\nTake another guess");
             }
             else {
-                System.out.println("too small");
+                System.out.println("too small\nTake another guess");
             }
-            System.out.println("Take another guess");
-            numberGuesses++;
-
         }
 
     }
